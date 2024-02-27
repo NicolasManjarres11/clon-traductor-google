@@ -8,5 +8,4 @@ En el archivo de configuración de eslint, agregamos las siguientes reglas
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/react-in-jsx-scope": "off",
 
-Para la estilización, instalamos bootstrap
-
+Para la estilización, instalamos bootstrap, con esto, terminamos de configurar el proyecto.
