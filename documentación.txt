@@ -79,4 +79,8 @@ function reducer (state, action){      //Recibe el estado y la acción. Llamamos
 }
 
 
-Luego creamos un archivo types.d.ts, donde tipamos los estados
+Luego creamos un archivo types.d.ts, donde tipamos los estados.
+Creamos un archivo de constantes donde definiremos los lenguajes predeterminados de nuestra aplicación. Con estas constantes, en el archivo de tipos, le decimos que las acciones que utilicen el objeto Language, se tiparan con la llave y el tipo de dato de las constantes de SUPPORT_LANGUAGE. También definimos esto con el lenguage auto.
+ 
+
+ 36:25 / 2:02:36
