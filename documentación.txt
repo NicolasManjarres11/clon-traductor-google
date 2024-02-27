@@ -9,3 +9,74 @@ En el archivo de configuración de eslint, agregamos las siguientes reglas
     "react/react-in-jsx-scope": "off",
 
 Para la estilización, instalamos bootstrap, con esto, terminamos de configurar el proyecto.
+
+
+
+**************************************************************************************************************************************************
+
+Debemos analizar primero el traductor de Google
+
+Analizando la página, tiene dos desplegables donde nos muestra el idioma origen y destion, dos cuadros de texto donde se coloca el texto a traducir y el texto traducido. Además, podemos colocar un loading mientras traduce el texto
+
+Teniendo en cuenta esto, creamos un objeto donde tendermos en cuenta los estados a utilizar
+
+const initialState= {
+  fromLanguage: 'auto', //lenguaje a traducir
+  toLanguage: 'en', //lenguaje traducido
+  fromText: '', //texto a traducir
+  result: '', //texto traducido
+  loading: false
+}
+
+Ahora creamos la función reducer. Recibe el estado y la acción. Llamamos una acción, esta le llega al reducer, el reducer toma el estado, genera un nuevo estado
+
+Dentro del reducer, definimos las acciones que "jugarán" con los estados creados. En estas, definimos las acciones que se van a implementar en nuestra aplicación y en cada acción, definimos el estado que va a utilizar
+
+
+function reducer (state, action){      //Recibe el estado y la acción. Llamamos una acción, esta le llega al reducer, el reducer toma el estado, genera un nuevo estado
+  const {type, payload} = action;
+
+  if (type === 'INTERCHANGE_LANGUAGE'){
+    return {
+      ...state,
+      fromLanguage: state.toLanguage,
+      toLanguage: state.fromLanguage
+    }
+  }
+
+  if (type === 'SET_FROM_LANGUAGE'){
+    return {
+      ...state,
+      fromLanguage: payload //payload es la información enviada por el usuario, la cual utilizaremos para actualizar el estado
+    }
+  }
+
+  if(type === 'SET_TO_LANGUAGE'){
+    return {
+      ...state,
+      toLanguage: payload
+    }
+  }
+
+  if (type === 'SET_FROM_TEXT'){
+    return{
+      ...state,
+      loading: true,
+      fromText: payload,
+      result: ''
+    }
+  }
+
+  if (type === 'SET_RESULT'){
+    return{
+      ...state,
+      loading: false,
+      result: payload
+    }
+  }
+
+  return state;
+}
+
+
+Luego creamos un archivo types.d.ts, donde tipamos los estados
