@@ -1,0 +1,12 @@
+se crea proyecto con el comando npm create vite@latest para crear el proyecto con vite
+
+corremos el comando de instalación de paquetes con npm i
+
+luego corremos el comando npx eslint --init para inicializar la configuración de eslint, que es una herramienta de linting que nos ayuda a identificar y corregir problemas en el código fuente. Luego de esto seleccionamos las opciones correspondiente dependiendo de las tecnologías que vamos a utilizar en nuestros proyectos
+
+En el archivo de configuración de eslint, agregamos las siguientes reglas
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/react-in-jsx-scope": "off",
+
+Para la estilización, instalamos bootstrap
+
