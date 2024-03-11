@@ -7,6 +7,7 @@ import { AUTO_LANGUAGE } from "./constants";
 import { ArrowsIcon } from "./components/icons";
 import { LanguageSelector } from "./components/LanguageSelector";
 import { SectionType } from "./types.d";
+import { TextArea } from "./components/TextArea";
 
 function App() {
   const {
@@ -15,6 +16,11 @@ function App() {
     interchangeLanguajes,
     setFromLanguage,
     setToLanguage,
+    fromText,
+    result,
+    setFromText,
+    setResult,
+    loading
   } = useStore(); //importamos función donde está alojado el hook useReduce
 
   return (
@@ -30,12 +36,11 @@ function App() {
               type={SectionType.FROM}
               value={fromLanguage}
             />
-            <Form.Control
-              as="textarea"
-              placeholder="Introducir texto"
-              autoFocus
-              style={{ height: "150px" }}
-            ></Form.Control>
+            <TextArea
+              type={SectionType.FROM}
+              value={fromText}
+              onChange={setFromText}
+            />
           </Stack>
         </Col>
 
@@ -56,11 +61,12 @@ function App() {
               type={SectionType.TO}
               value={toLanguage}
             />
-            <Form.Control
-              as="textarea"
-              placeholder="Traducción"
-              style={{ height: "150px" }}
-            ></Form.Control>
+            <TextArea
+              type={SectionType.TO}
+              value={result}
+              onChange={setResult}
+              loading={loading}
+            />
           </Stack>
         </Col>
       </Row>
