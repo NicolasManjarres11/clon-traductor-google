@@ -85,4 +85,4 @@ Creamos un archivo de constantes donde definiremos los lenguajes predeterminados
 
  se agrega ícono de flechas para intercambiar el lenguaje, se crea componente para seleccionar el language, donde mapeamos la constante de lenguajes soportados pero colocandolo como parámetro en un Object.entries, para que divida los elementos dentro de esta constante y que se puedan interar correctamente dentro del formulario, se define en el archivo de tipados, los tipos específicos para lenguaje a traducir y lenguaje traducido, además, se agrega en el componente selector images, una condicional de que si el tipo es igual a from, que se agregue una opción que diga agregar automáticamente
 
-1:00:00 / 2:02:36
+1:10:00 / 2:02:36
